@@ -16,9 +16,18 @@
         margin-left: -80px !important;
 
         background-color: #ededed;
-        -moz-box-shadow:    0 0 5px 0px gray;
+        -moz-box-shadow: 0 0 5px 0px gray;
         -webkit-box-shadow: 0 0 5px 0px gray;
-        box-shadow:         0 0 5px 0px gray;
+        box-shadow: 0 0 5px 0px gray;
+
+        img {
+            width: 100% ;
+            height: auto;
+
+            &[src=" "] {
+                display: none;
+            }
+        }
 
         p {
             padding: 10px;
