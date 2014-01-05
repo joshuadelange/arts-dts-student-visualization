@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>arts dts student visualization</title>
+        <title>Arts DTS peepz</title>
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
@@ -30,6 +30,21 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <div class="stats">
+
+            <p class="value">11</p>
+            <p class="descr">Students</p>
+
+            <p class="value">10</p>
+            <p class="descr">Nationalities</p>
+
+            <p class="value">7+</p>
+            <p class="descr">Languages</p>
+
+        </div>
+
+        <div class="gradient"></div>
+
         <div id="map"></div>
 
         <!-- build:js scripts/vendor.js -->
@@ -48,10 +63,10 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
-        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
         <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/leaflet.OverlappingMarkerSpiderfier.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 

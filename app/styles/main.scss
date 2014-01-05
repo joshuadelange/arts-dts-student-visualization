@@ -1,3 +1,48 @@
+.stats {
+    width: 200px;
+
+    position: absolute;
+        bottom: 30px;
+        left: 30px;
+
+    z-index: 1000000;
+
+    .value {
+        font-size: 80px;
+        line-height: 50px;
+    }
+
+    .descr {
+        font-size: 40px;
+        margin-bottom: 50px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.gradient {
+
+    width: 480px;
+
+    position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+
+    z-index: 100000;
+
+    background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+
+}
+
 #map {
     position: absolute;
         top: 0;
@@ -5,24 +50,44 @@
         right: 0;
         bottom: 0;
 
-
-    .icon {
+    .leaflet-popup {
 
         position: absolute;
 
-        width: 160px !important;
+        width: 350px !important;
         height: auto !important;
 
-        margin-left: -80px !important;
+        bottom: -200px !important;
 
         background-color: #ededed;
         -moz-box-shadow: 0 0 5px 0px gray;
         -webkit-box-shadow: 0 0 5px 0px gray;
         box-shadow: 0 0 5px 0px gray;
 
+        .leaflet-popup-close-button {
+            display: none;
+        }
+
+        .leaflet-popup-tip-container {
+            display: none;
+        }
+
+        .leaflet-popup-content-wrapper {
+            background-color: transparent;
+            box-shadow: none;
+            border: none;
+        }
+
+        .leaflet-popup-content {
+            width: auto !important;
+            margin: 0;
+            line-height: 0;
+        }
+
         img {
             width: 100% ;
             height: auto;
+            margin-bottom: 10px;
 
             &[src=" "] {
                 display: none;
@@ -30,17 +95,79 @@
         }
 
         p {
+            font-size: 25px;
+            margin-top: 0;
             padding: 10px;
             padding-bottom: 0;
 
+            &.muted {
+                font-size: 20px;
+                line-height: 0;
+                color: gray;
+            }
+
             .label {
                 margin-left: 10px;
+                background-color: silver;
+                font-weight: 100;
             }
+
         }
 
         &:hover {
             z-index: 10000 !important;
         }
+    }
+
+    .leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
+        -webkit-transition: -webkit-transform 0.25s ease-out, opacity 0.25s ease-in;
+        -moz-transition: -moz-transform 0.25s ease-out, opacity 0.25s ease-in;
+        -o-transition: -o-transform 0.25s ease-out, opacity 0.25s ease-in;
+        transition: transform 0.25s ease-out, opacity 0.25s ease-in;
+    }
+
+    .marker-cluster-small {
+        background-color: rgba(181, 226, 140, 0.6);
+    }
+
+    .marker-cluster-small div {
+        background-color: rgba(110, 204, 57, 0.6);
+    }
+
+    .marker-cluster-medium {
+        background-color: rgba(241, 211, 87, 0.6);
+    }
+
+    .marker-cluster-medium div {
+        background-color: rgba(240, 194, 12, 0.6);
+    }
+
+    .marker-cluster-large {
+        background-color: rgba(253, 156, 115, 0.6);
+    }
+
+    .marker-cluster-large div {
+        background-color: rgba(241, 128, 23, 0.6);
+    }
+
+    .marker-cluster {
+        background-clip: padding-box;
+        border-radius: 20px;
+    }
+
+    .marker-cluster div {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+        margin-top: 5px;
+
+        text-align: center;
+        border-radius: 15px;
+        font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    }
+
+    .marker-cluster span {
+        line-height: 30px;
     }
 
 }
