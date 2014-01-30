@@ -15,7 +15,7 @@ $(document).ready(function(){
         i++;
         if(i === 21) {
             //because there is a bug i cant fix last moment
-            window.reload() ;
+            location.reload() ;
         }
 
         setTimeout(function(){
@@ -56,7 +56,8 @@ $(document).ready(function(){
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     }).addTo(map);
 
-    $.getJSON('https://spreadsheets.google.com/feeds/cells/0ApT5f0KS7hjVdEJIVGVMUWdiNlQzbTBxMDVPSlVzb3c/od6/public/basic?alt=json-in-script&callback=?', function(r){
+    // $.getJSON('https://spreadsheets.google.com/feeds/cells/0ApT5f0KS7hjVdEJIVGVMUWdiNlQzbTBxMDVPSlVzb3c/od6/public/basic?alt=json-in-script&callback=?', function(r){
+    $.getJSON('https://spreadsheets.google.com/feeds/cells/0AqA2xvkYssxvdGg3WW1oc2JsZ3dBRUdwUmVLRmt5LUE/od6/public/basic?alt=json-in-script&callback=?', function(r){
 
         var numOfColumns = 7,
             lists = [],
@@ -64,6 +65,8 @@ $(document).ready(function(){
 
         //first transform this data into an usable object
         $.each(r.feed.entry, function(index, value){
+
+            console.log(value.content.$t) ;
 
             var columnIndex = index % numOfColumns ;
 
@@ -75,11 +78,15 @@ $(document).ready(function(){
 
         }) ;
 
+        console.log(lists) ;
+
         $.each(lists, function(index, value){
             data[value.shift().replace(/ /g, '_').toLowerCase()] = value ;
         }) ;
 
-        $.each(data.name, function(index, value){
+        console.log(data) ;
+
+        $.each(data.first_name, function(index, value){
 
             var marker = L.marker([data.lat[index], data.lon[index]]).bindPopup(
                 '<img src="' + data.photo[index] + '"><p>' + value + '<span class="label label-inverse">' + data.role[index] + '</span></p><p class="muted">' + data.city[index] + ', ' + data.country[index] + '</p>',
@@ -95,7 +102,9 @@ $(document).ready(function(){
 
         }) ;
 
-        nextMarker(0) ;
+        if(window.location.hash === '#play') {
+            nextMarker(0) ;
+        }
 
         // markers[0].openPopup() ;
         // map.setView(markers[0].getLatLng(), 6) ;
