@@ -12,12 +12,6 @@ $(document).ready(function(){
 
         map.setView(markers[i].getLatLng(), 5) ;
 
-        i++;
-        if(i === 21) {
-            //because there is a bug i cant fix last moment
-            location.reload() ;
-        }
-
         setTimeout(function(){
 
             map.setView(markers[i].getLatLng(), 3) ;
@@ -32,6 +26,13 @@ $(document).ready(function(){
                     map.setView(markers[i].getLatLng(), 8) ;                   
 
                     setTimeout(function(){
+
+                        i++;
+                        if(i === 27) {
+                            //because there is a bug i cant fix last moment
+                            location.reload() ;
+                        }
+
                         nextMarker(i);
                     }, 5000) ;
 

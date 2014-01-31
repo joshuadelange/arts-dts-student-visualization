@@ -87,22 +87,29 @@
         img {
             width: 100% ;
             height: auto;
-            margin-bottom: 10px;
 
-            &[src=" "] {
+            &[src="... "] {
                 display: none;
             }
         }
 
         p {
+
+            min-height: 20px;
+
             font-size: 25px;
-            margin-top: 0;
-            padding: 10px;
-            padding-bottom: 0;
+
+            margin-top: 10px;
+            margin-bottom: 18px;
+
+            padding: 0 10px;
+
+            line-height: 35px;
 
             &.muted {
+                margin: 0;
                 font-size: 20px;
-                line-height: 0;
+                line-height: 5px;
                 color: gray;
             }
 
